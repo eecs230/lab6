@@ -7,21 +7,21 @@ Vector2d::Vector2d(double x, double y) {
 }
 
 // getters: return the value of member variables x and y
-double Vector2d::getX() const { //const indicates that the function cannot change the object it is called from
+double Vector2d::get_x() const { //const indicates that the function cannot change the object it is called from
     // implement here
 
 }
-double Vector2d::getY() const {
+double Vector2d::get_y() const {
     // implement here
 
 
 }
 
 // setters: set the value of member variables x and y
-void Vector2d::setX(double x) {
+void Vector2d::set_x(double x) {
     // implement here
 }
-void Vector2d::setY(double y) {
+void Vector2d::set_y(double y) {
     // implement here
 }
 
@@ -38,7 +38,7 @@ Vector2d subtract(const Vector2d& a, const Vector2d& b) {
 
 // operator overloading of '=='
 bool operator==(const Vector2d& a, const Vector2d& b) {
-    return (a.getX()==b.getX() && a.getY()==b.getY());
+    return (a.get_x()==b.get_x() && a.get_y()==b.get_y());
 }
 
 
