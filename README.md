@@ -16,6 +16,7 @@ The function signatures are provided for you. Implement functions where you see 
 
 AFTER you've implemented the functions, if you run the program, it will print out the following:
 
+```
 vec1: x=0, y=0
 vec2: x=1, y=0
 vec3: x=0, y=0
