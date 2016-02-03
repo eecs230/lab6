@@ -3,9 +3,9 @@
 ---------
 Review
 ---------
-- Classes (private by default) versus Structs (public by default)
-- operator overloading (in this lab you will overload '==', '+', and '-'
-- scope (global, local, loop) and protection level (public, private)
+- Classes versus Structs (private versus public by default)
+- operator overloading (in this lab you will overload '==', '+', and '-')
+- scope and protection level ((global, local, loop | public, private)
 - passing argument by reference (versus by value)
 
 ---------
