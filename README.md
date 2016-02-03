@@ -17,16 +17,28 @@ The function signatures are provided for you. Implement functions where you see 
 AFTER you've implemented the functions, if you run the program, it will print out the following:
 
 ```
+Test whether Vector2d constructor() worked:
 vec1: x=0, y=0
 vec2: x=1, y=0
 vec3: x=0, y=0
+-----
+Test whether check_equal() - which uses operator overloading of '==' -- worked:
 two vectors are different
 two vectors are same
+-----
+Test whether setter functions worked:
 (after assignment) vec1: x=2, y=3
+-----
+Test whether add() function worked:
 (add)      vec3: x=3, y=3
+-----
+Test whether subtract() function worked:
 (subtract) vec3: x=1, y=3
+-----
+Test whether operator overloading of '+' and '-' worked:
 (+) vec3: x=3, y=3
 (-) vec3: x=1, y=3
+-----
 ```
 
 Change the initialization values in run_tests() in main.cpp and test many cases that you come up with. Become familiar with the code, and modify as you see fit. Ask questions!
