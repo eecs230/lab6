@@ -13,12 +13,12 @@ public:
     Vector2d(double x, double y);
 
     // getter declarations
-    double getX() const;
-    double getY() const;
+    double get_x() const;
+    double get_y() const;
 
     // setter declarations
-    void setX(double);
-    void setY(double);
+    void set_x(double);
+    void set_y(double);
 };
 
 // helper function

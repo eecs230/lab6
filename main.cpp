@@ -15,9 +15,9 @@ void run_tests()
 
     cout << "Test whether Vector2d constructor() worked: \n";
 
-    cout << "vec1: x=" << vec1.getX() << ", y=" << vec1.getY() << endl;
-    cout << "vec2: x=" << vec2.getX() << ", y=" << vec2.getY() << endl;
-    cout << "vec3: x=" << vec3.getX() << ", y=" << vec3.getY() << endl;
+    cout << "vec1: x=" << vec1.get_x() << ", y=" << vec1.get_y() << endl;
+    cout << "vec2: x=" << vec2.get_x() << ", y=" << vec2.get_y() << endl;
+    cout << "vec3: x=" << vec3.get_x() << ", y=" << vec3.get_y() << endl;
 
     cout << "----- \n";
 
@@ -30,32 +30,32 @@ void run_tests()
 
     cout << "Test whether setter functions worked: \n";
 
-    vec1.setX(2); // you can change values
-    vec1.setY(3); // you can change values
-    cout << "(after assignment) vec1: x=" << vec1.getX() << ", y=" << vec1.getY() << endl;
+    vec1.set_x(2); // you can change values
+    vec1.set_y(3); // you can change values
+    cout << "(after assignment) vec1: x=" << vec1.get_x() << ", y=" << vec1.get_y() << endl;
 
     cout << "----- \n";
 
     cout << "Test whether add() function worked: \n";
 
     vec3 = add(vec1,vec2);
-    cout << "(add)      vec3: x=" << vec3.getX() << ", y=" << vec3.getY() << endl;
+    cout << "(add)      vec3: x=" << vec3.get_x() << ", y=" << vec3.get_y() << endl;
 
     cout << "----- \n";
 
     cout << "Test whether subtract() function worked: \n";
 
     vec3 = subtract(vec1,vec2);
-    cout << "(subtract) vec3: x=" << vec3.getX() << ", y=" << vec3.getY() << endl;
+    cout << "(subtract) vec3: x=" << vec3.get_x() << ", y=" << vec3.get_y() << endl;
 
     cout << "----- \n";
 
     cout << "Test whether operator overloading of '+' and '-' worked: \n";
 
     vec3 = vec1 + vec2;
-    cout << "(+) vec3: x=" << vec3.getX() << ", y=" << vec3.getY() << endl;
+    cout << "(+) vec3: x=" << vec3.get_x() << ", y=" << vec3.get_y() << endl;
     vec3 = vec1 - vec2;
-    cout << "(-) vec3: x=" << vec3.getX() << ", y=" << vec3.getY() << endl;
+    cout << "(-) vec3: x=" << vec3.get_x() << ", y=" << vec3.get_y() << endl;
 
     cout << "----- \n";
 }

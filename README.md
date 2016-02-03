@@ -5,7 +5,7 @@ Review
 ---------
 - Classes versus Structs (private versus public by default)
 - operator overloading (in this lab you will overload '==', '+', and '-')
-- scope and protection level ((global, local, loop | public, private)
+- scope and protection level
 - passing argument by reference (versus by value)
 
 ---------
