@@ -1,22 +1,24 @@
 #pragma once
 
+// Class Vector2d represents a 2 dimensional vector originating at the origin and ending at the point (x_ , y_)
 class Vector2d {
 private:
+    //member variables - private, meaning only accessible via getters and setters
     double x_;
     double y_;
 
 public:
-    // constructors
-    Vector2d();
+    // constructor declarations
+    Vector2d(); //default constructor
     Vector2d(double x, double y);
 
-    // getters
-    double x() const;
-    double y() const;
+    // getter declarations
+    double getX() const;
+    double getY() const;
 
-    // setters
-    void x(double);
-    void y(double);
+    // setter declarations
+    void setX(double);
+    void setY(double);
 };
 
 // helper function
