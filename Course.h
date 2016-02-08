@@ -3,17 +3,20 @@
 
 #include "Student.h"
 #include "Department.h"
-using namespace std;
+#include <iostream>
 
-//map<int, Course> COURSE_CATALOG;
+using namespace std;
 
 struct Course {
 
     int cid;
-    department dept;
+    string dept;
 
-    Course(){};
-    Course(int c, department d):cid(c), dept(d){};
+    Course();
+    Course(int c, string d);
+
 };
+
+ostream & operator<<(ostream &, Course &);
 
 #endif //LAB5_COURSE_H

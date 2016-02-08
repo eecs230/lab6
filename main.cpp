@@ -8,7 +8,7 @@
 using namespace std;
 
 //CAESAR database
-Catalog NORTHWESTERN_DB;
+Catalog CAESAR;
 
 // Approach: start with something considerably more difficult than they've seen, but that works.
 // Learn to interact with it
@@ -18,51 +18,50 @@ Catalog NORTHWESTERN_DB;
  * Add new default parameter to constructor, assume age is 18
  * Modify Course ostream operator
  * Add new course
+ * default age
  * bug: can't have courses with same number in different depts - use pair to fix this
  * sort - implement < operator for student
  * Change course to be a class
  * adjunct faculty
  * add a feature that rejects grades outside 0-4 range
  * Add name member variable to Courses
+ * Implement "<<" overload for Course
  * */
 
-void run_tests(); // function declaration
+void populate_db(); // function declaration
 
 int main() {
-    run_tests();
+    populate_db();
+    CAESAR.print_catalog();
 }
 
-void run_tests() // function definition
+void populate_db() // function definition
 {
+    //Construct Students
+    Student s_1("Jason", 29, "EECS");
+    Student s_2("Sam", 20, "Math");
+    Student s_3("Sarah", 23, "Chemical Engineering");
 
+    //Add Students
+    CAESAR.add_student(s_1);
+    CAESAR.add_student(s_2);
+    CAESAR.add_student(s_3);
 
-    Student s_1 = Student();
+    //Construct Courses
+    Course algorithms(333, "EECS");
+    //Course programming(230, "EECS");
+    //Course algebra(101, "Math");
 
-    //("Jason", 29, EECS, true);
+    //Add Courses
+    CAESAR.add_course(algorithms);
 
-    //NORTHWESTERN_DB.add_student(s_1);
+    //Construct Enrollments
+    Enroll e(s_1,algorithms, 4);
+    Enroll e2(s_2,algorithms, 3.5);
+    Enroll e3(s_3,algorithms, 3.0);
 
-    //Course algorithms(333, EECS);
-    //Course programming(230, EECS);
-    //Course algebra(101, MATH);
-
-
-    //Enroll e(s_1.sid,333, 4);
-    //NORTHWESTERN_DB.add_enrollment(e);
-
-
-
-
-
-
-    //pair<int, Course> algorithms_pair = pair<
-
-    //COURSE_CATALOG.insert(algorithms.cid, algorithms);
-
-
-
-
-
-
-
+    //Add Enrollments
+    CAESAR.add_enrollment(e);
+    CAESAR.add_enrollment(e2);
+    CAESAR.add_enrollment(e3);
 }

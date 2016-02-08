@@ -4,7 +4,11 @@
 
 #include "Enroll.h"
 
-//constructor, using initialization list
-Enroll::Enroll(int s, int c, double g): sid(s), cid(c), grade(g){}
+Enroll::Enroll(Student s, Course c, double g)
+{
+    sid = s.sid;
+    cid = c.cid;
+    grade = g;
+}
 
 Enroll::Enroll() { } //default constructor

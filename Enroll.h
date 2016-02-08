@@ -6,6 +6,10 @@
 #define LAB5_ENROLL_H
 
 #include "Department.h"
+#include "Student.h"
+#include "Course.h"
+
+using namespace std;
 
 //each student has a unique enrollment for each class he/she is in.
 struct Enroll {
@@ -15,7 +19,7 @@ struct Enroll {
     double grade; //0-4 scale, 4 = 'A'
 
     Enroll();
-    Enroll(int s, int c, double g);
+    Enroll(Student, Course, double g);
 };
 
 #endif //LAB5_ENROLL_H
