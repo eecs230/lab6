@@ -3,14 +3,20 @@
 ---------
 Review
 ---------
-- Classes versus Structs (private versus public by default)
-- Operator overloading (in this lab you will overload '==', '+', and '-')
-- Variable scope (local, global)
-- Passing argument by reference (versus by value)
+- Classes & Structs practice
+- Map container
+- Iterators
 
 ---------
 Exercise
 ---------
+We are going to implement and use a simple database with the following schema:
+
+students(sid: int, name: string, age: int)
+course(cid: int, name: string, dept: department; prof: professor)
+professor(name: string, dept department)
+
+
 We are going to implement a class Vector2d which is composed of two members x_,y_, constructors, and getters/setters. We placed the declarations in a header vector2d.h. You are supposed to implement functions in vector2d.cpp.
 The function signatures are provided for you. Implement functions where you see "Implement Here"
 
