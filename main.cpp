@@ -16,6 +16,7 @@ int main() {
     populate_db();
     CAESAR.print_catalog();
     //run_two_tests();
+
 }
 
 void populate_db() // function definition

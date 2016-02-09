@@ -46,10 +46,9 @@ void Catalog::add_enrollment(Enroll & e)
     {
         cerr << "Error in Catalog::add_enrollment()-- Student: "<< the_sid << " is not a valid student in Catalog" << endl;
     }
-    else if (courses.find(e.cid) == courses.end())
-    {
-        cerr << "Error in Catalog::add_enrollment()-- Course: " << e.cid << " is not a valid course in Catalog" << endl;
-    }
+
+    //check whether a course_id exists Catalog, and if not, call cerr << [your message here]
+        
     else
     {
         enrollments.push_front(e);
