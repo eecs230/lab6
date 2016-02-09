@@ -3,7 +3,6 @@
 #include "Student.h"
 #include "Enroll.h"
 #include "Catalog.h"
-#include "Department.h"
 
 using namespace std;
 

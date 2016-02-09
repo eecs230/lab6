@@ -7,7 +7,6 @@
 #include <iostream>
 #include "Course.h"
 #include "Enroll.h"
-#include "Department.h"
 #include "Catalog.h"
 
 struct Catalog;

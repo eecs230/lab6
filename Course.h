@@ -2,7 +2,6 @@
 #define LAB5_COURSE_H
 
 #include "Student.h"
-#include "Department.h"
 #include <iostream>
 
 using namespace std;

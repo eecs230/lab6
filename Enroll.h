@@ -5,7 +5,6 @@
 #ifndef LAB5_ENROLL_H
 #define LAB5_ENROLL_H
 
-#include "Department.h"
 #include "Student.h"
 #include "Course.h"
 
