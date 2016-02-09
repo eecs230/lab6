@@ -1,6 +1,7 @@
 
 #include "Catalog.h"
 
+/* Add student to Catalog */
 void Catalog::add_student(Student & s)
 {
     pair<int, Student> s_p;
@@ -9,6 +10,7 @@ void Catalog::add_student(Student & s)
     students.insert(s_p);
 }
 
+/* Add student to Course: note, no duplicate cids allowed [known bug] */
 void Catalog::add_course(Course & c)
 {
     pair<int, Course> c_p;
@@ -26,6 +28,7 @@ void Catalog::add_course(Course & c)
     }
 }
 
+/* retrieve student from Catalog*/
 Student Catalog::retrieve_student(int sid)
 {
     map<int, Student>::iterator j = students.find(sid);
@@ -34,14 +37,7 @@ Student Catalog::retrieve_student(int sid)
     return s;
 }
 
-Course Catalog::retrieve_course(int cid)
-{
-    map<int, Course>::iterator k = courses.find(cid);
-    pair<int, Course> p2 = (*k);
-    Course c = p2.second;
-    return c;
-}
-
+/* add enrollment to from Catalog; ensure both course and student associated with Enroll object are in Catalog*/
 void Catalog::add_enrollment(Enroll & e)
 {
     int the_sid = e.sid;
@@ -59,6 +55,33 @@ void Catalog::add_enrollment(Enroll & e)
         enrollments.push_front(e);
     }
 }
+
+/* retrieve course from Catalog*/
+Course Catalog::retrieve_course(int cid)
+{
+    map<int, Course>::iterator k = courses.find(cid);
+    pair<int, Course> p2 = (*k);
+    Course c = p2.second;
+    return c;
+}
+
+/* returns vector of all enrollments for student with student ID: sid */
+vector<Enroll> Catalog::get_all_enrollments(int sid)
+{
+    vector<Enroll> output;
+
+    for (list<Enroll>::iterator i = enrollments.begin(); i != enrollments.end(); i++)
+    {
+        Enroll e = *i;
+        if(e.sid == sid)
+        {
+            output.push_back(e);
+        }
+    }
+
+    return output;
+}
+
 void Catalog::print_students()
 {
     cout << "Students: \n";
@@ -104,21 +127,4 @@ void Catalog::print_catalog()
     print_courses();
     print_enrollments();
     cout << endl;
-}
-
-/* returns vector of all enrollments for student with student ID: sid */
-vector<Enroll> Catalog::get_all_enrollments(int sid)
-{
-    vector<Enroll> output;
-
-    for (list<Enroll>::iterator i = enrollments.begin(); i != enrollments.end(); i++)
-    {
-        Enroll e = *i;
-        if(e.sid == sid)
-        {
-            output.push_back(e);
-        }
-    }
-
-    return output;
 }

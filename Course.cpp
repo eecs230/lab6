@@ -1,6 +1,11 @@
 
 #include "Course.h"
 
+//constructors
+Course::Course(){};
+Course::Course(int c, string d, string n):cid(c), dept(d), name(n){};
+
+//overloaded '<<' operator
 ostream & operator<<(ostream & o, Course & c)
 {
     o << "department: " << c.dept << "; number: "<< c.cid;
@@ -8,7 +13,3 @@ ostream & operator<<(ostream & o, Course & c)
         o << "; name: " << c.name;
     return o;
 }
-
-Course::Course(){};
-
-Course::Course(int c, string d, string n):cid(c), dept(d), name(n){};

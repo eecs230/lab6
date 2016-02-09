@@ -44,6 +44,7 @@ double Student::compute_gpa()
     return sum / num_courses;
 }
 
+//operator overloaded
 ostream & operator<<(ostream & o, Student& s)
 {
     o << s.name << "; sid: " << s.sid << "; " << s.age << " years old; major: " << s.major;

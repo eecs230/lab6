@@ -1,6 +1,3 @@
-//
-// Created by Jason Brown on 2/8/16.
-//
 
 #ifndef LAB5_ENROLL_H
 #define LAB5_ENROLL_H

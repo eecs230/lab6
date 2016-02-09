@@ -6,6 +6,7 @@
 
 using namespace std;
 
+/*represents unique course */
 struct Course {
 
     int cid;

@@ -15,6 +15,8 @@ extern Catalog CAESAR;
 
 using namespace std;
 
+
+/* represents student object*/
 struct Student {
 
     //member variables
@@ -26,7 +28,7 @@ struct Student {
 
     //constructors
     Student(); //default constructor
-    Student(string n, int a, string d, bool h = true);
+    Student(string n, int a, string d, bool h = true); //note: bool h = true means default value is true, unless specified otherwise
 
     //function declarations
     void enroll_in_course(int cid);
@@ -36,6 +38,7 @@ struct Student {
 
 };
 
+//operator overloading
 ostream & operator<<(ostream &, Student&);
 
 #endif //LAB5_STUDENT_H
