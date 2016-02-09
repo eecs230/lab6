@@ -43,13 +43,15 @@ Enrollments:
    Print out CAESAR and verify that everything worked correctly.
 
 2. Currently, courses are represented by course_number and department. Add a member variable to Course that represents the name of the course.
-   Print out CAESAR and verify that everything worked correctly.
+   Ie, EECS 330 Enroll object has member variable name "Programming For Engineers". Print out CAESAR and verify that everything worked correctly.
 
-3. Currently, `Student::compute_gpa()` is not implemented. Finish the implementation and verify that the function works correctly.
+3. Currently, `Student::compute_gpa()` is not implemented. Finish the implementation and verify that the function works correctly. Verify that `Miguel has gpa of 3.0`.
 
-4. Add an **invariant** in the `Catalog` struct that ensures all students and courses are in CAESAR, before an Enrollment involving the student or course occurs.
+4. Add an **invariant** in the `Catalog` struct that ensures all students and courses are in CAESAR, before an Enrollment involving the student or course is added to CAESAR.
+   If this **invariant** is not met, call `cerr<< [your message here]`.
 
-5. Add an **invariant** in the `Enroll` struct that ensures grades be in the range [0,4].
+5. Add an **invariant** in the `Enroll` struct that ensures grades be in the range [0,4], before constructing a valid Enroll object.
+   If this **invariant** is not met, call `cerr<< [your message here]`.
 
 ## Extension
 

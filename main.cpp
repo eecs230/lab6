@@ -10,23 +10,12 @@ using namespace std;
 Catalog CAESAR;
 
 void populate_db(); // function declaration
+void run_two_tests(); // function declaration
 
 int main() {
     populate_db();
     CAESAR.print_catalog();
-
-    //Will work once implementation of compute_gpa() completed
-    Student s = CAESAR.retrieve_student(0);
-    double gpa = s.compute_gpa();
-    cout << s.name << " has gpa of " << gpa << endl;
-
-    //Attempt to add a course that's not in CAESAR to an enrollment -- will fail once invariant check implemented
-    Course econometrics(110, "ECON");
-    //CAESAR.add_course(econometrics);
-    Enroll e(s,econometrics, 3.0);
-    CAESAR.add_enrollment(e);
-    CAESAR.print_catalog();
-
+    //run_two_tests();
 }
 
 void populate_db() // function definition
@@ -64,4 +53,19 @@ void populate_db() // function definition
     CAESAR.add_enrollment(e3);
     CAESAR.add_enrollment(e4);
     CAESAR.add_enrollment(e5);
+}
+
+void run_two_tests()
+{
+    //Will work once implementation of compute_gpa() completed
+    Student s = CAESAR.retrieve_student(0);
+    double gpa = s.compute_gpa();
+    cout << s.name << " has gpa of " << gpa << endl;
+
+    //Attempt to add a course that's not in CAESAR to an enrollment -- will fail once invariant check implemented
+    Course econometrics(110, "ECON");
+    //CAESAR.add_course(econometrics);
+    Enroll e(s,econometrics, 3.0);
+    CAESAR.add_enrollment(e);
+    CAESAR.print_catalog();
 }

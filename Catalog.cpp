@@ -14,7 +14,16 @@ void Catalog::add_course(Course & c)
     pair<int, Course> c_p;
     c_p = make_pair(c.cid, c);
 
-    courses.insert(c_p);
+    //ensure that no duplicate course_num is added to CAESAR [known bug - see Extension problem]
+    map<int, Course>::iterator i = courses.find(c.cid);
+    if(i== courses.end())
+    {
+        courses.insert(c_p);
+    }
+    else
+    {
+        cerr << "Error in Catalog::add_course()-- unable to add course; duplicate course_num in CAESAR: " << c << endl;
+    }
 }
 
 Student Catalog::retrieve_student(int sid)
@@ -39,11 +48,11 @@ void Catalog::add_enrollment(Enroll & e)
 
     if(students.find(the_sid) == students.end()) //student id not a key value in students map
     {
-        cerr << "Student: "<< the_sid << "- is not a valid student in Catalog" << endl;
+        cerr << "Error in Catalog::add_enrollment()-- Student: "<< the_sid << " is not a valid student in Catalog" << endl;
     }
     else if (courses.find(e.cid) == courses.end())
     {
-        cerr << "Course: " << e.cid << "- is not a valid course in Catalog" << endl;
+        cerr << "Error in Catalog::add_enrollment()-- Course: " << e.cid << " is not a valid course in Catalog" << endl;
     }
     else
     {

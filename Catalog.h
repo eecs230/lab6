@@ -12,6 +12,7 @@
 
 using namespace std;
 
+//declarations that Student and Enroll structs exist
 struct Student;
 struct Enroll;
 
