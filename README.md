@@ -14,7 +14,7 @@ students(sid: int, name: string, age: int, hasNotGraduated: bool)
 course(cid: int, dept: string)
 enroll(sid: int, cid: int, grade:int)
 
-The Catalog, that stores this information, is called CAESAR. CAESAR contains the following students, courses, and enrollments currently:
+The Catalog that stores this information has global variable name CAESAR. It is pre-populated with the following:
 
 ```
 Students:
@@ -42,15 +42,14 @@ Enrollments:
 
    Print out CAESAR and verify that everything worked correctly.
 
-2. Currently, courses are represented by course_number and department. Add a member variable to Course that is the name of the course.
+2. Currently, courses are represented by course_number and department. Add a member variable to Course that represents the name of the course.
    Print out CAESAR and verify that everything worked correctly.
 
 3. Currently, `Student::compute_gpa()` is not implemented. Finish the implementation and verify that the function works correctly.
 
-4. `Catalog::add_enrollment(Enroll & e)` currently checks whether the student associated with Enrollment is included in the database, but doesn't check whether the course is included in the database.
-   Modify `add_enrollment` to check for this  `invariant`. Try adding a enrollment for a course that isn't in the database to verify it worked correctly.
+4. Add an **invariant** in the `Catalog` struct that ensures all students and courses are in CAESAR, before an Enrollment involving the student or course occurs.
 
-5. Compute checks in the Enroll struct to verify the `invariant` that grades be in the range [0,4].
+5. Add an **invariant** in the `Enroll` struct that ensures grades be in the range [0,4].
 
 ## Extension
 
