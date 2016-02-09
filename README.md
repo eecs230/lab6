@@ -43,7 +43,7 @@ Enrollments:
    Print out CAESAR and verify that everything worked correctly.
 
 2. Currently, courses are represented by course_number and department. Add a member variable to Course that represents the name of the course.
-   Ie, EECS 330 Enroll object has member variable name "Programming For Engineers". Print out CAESAR and verify that everything worked correctly.
+   Ie, EECS_330 Course object has member variable name "Programming For Engineers". Print out CAESAR and verify that everything worked correctly.
 
 3. Currently, `Student::compute_gpa()` is not implemented. Finish the implementation and verify that the function works correctly. Verify that `Miguel has gpa of 3.0`.
 
