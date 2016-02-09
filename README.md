@@ -8,11 +8,11 @@
 
 ## Introduction
 
-We are going to work with a simple database with the following schema:
+We are going to work with a database with the following schema:
 
-students(sid: int, name: string, age: int, hasNotGraduated: bool)
-course(cid: int, dept: string)
-enroll(sid: int, cid: int, grade:int)
+- students(sid: int, name: string, age: int, hasNotGraduated: bool)
+- course(cid: int, dept: string)
+- enroll(sid: int, cid: int, grade:int)
 
 The Catalog that stores this information has global variable name CAESAR. It is pre-populated with the following:
 
