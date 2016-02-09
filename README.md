@@ -50,9 +50,10 @@ Enrollments:
 4. Add an **invariant** in the `Catalog` struct that ensures all students and courses are in CAESAR, before an Enrollment involving the student or course is added to CAESAR.
    If this **invariant** is not met, call `cerr<< [your message here]`.
 
-5. Add an **invariant** in the `Enroll` struct that ensures grades be in the range [0,4], before constructing a valid Enroll object.
-   If this **invariant** is not met, call `cerr<< [your message here]`.
-
 ## Extension
 
-6. Currently, there is a bug in the database where all course_numbers must be unique (ie., there can't be both a CHEM_ENG 101 and MECH_ENG 101). Fix this bug by having the courses take in a `pair<int cid, string dept>` as it's primary key.
+1. Add an **invariant** in the `Enroll` struct that ensures grades be in the range [0,4], before constructing a valid Enroll object. If this **invariant** is not met, call `cerr<< [your message here]`.
+
+2. Modify the student() constructor to assume that new students have an age of 18 years old, unless told otherwise. Ie, make age 18 the default value. For an example, notice that hasNotGraduated has a default value of `true`.
+
+3. Currently, there is a bug in the database where all course_numbers must be unique (ie., there can't be both a CHEM_ENG 101 and MECH_ENG 101). Fix this bug by having the courses take in a `pair<int cid, string dept>` as it's primary key.
