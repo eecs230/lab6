@@ -25,27 +25,23 @@ void Student::change_major(string new_major)
     major = new_major;
 }
 
-/*iterate over all completed courses, and compute average gpa;
- * Since completed_courses is a map-container and not a vector, container does not support random access.
- * Therefore, use an iterator. The syntax is (map<int, Course>::iterator i = completed_courses.begin()
- * while i != completed_courses.end(); i++)
-*/
+/*iterate over all enrollments and compute average gpa*/
 double Student::compute_gpa()
 {
-    double sum = 0;
-    //int num_courses_completed = completed_courses.size();
+    vector<Enroll> my_enrollments = CAESAR.get_all_enrollments(sid);
 
-//    for (map<int, Course>::iterator i = completed_courses.begin(); i != completed_courses.end(); i++) {
-//
-//        //dereference the iterator to get the pair object
-//        auto my_kV_pair = *i; //auto lets compiler determine type. Here, auto is: pair<int, Course>
-//
-//        Course c = my_kV_pair.second;
-//
-//        //sum += c.grade;
-//    }
-    return 0;
-    //return sum / num_courses_completed;
+    double sum = 0;
+    double num_courses = my_enrollments.size();
+
+    for(int i= 0; i< num_courses; i++)
+    {
+        double grade = my_enrollments[i].grade;
+        sum += grade;
+    }
+
+    cerr << "Student::compute_gpa() not yet implemented" << endl;
+
+    return sum / num_courses;
 }
 
 ostream & operator<<(ostream & o, Student& s)

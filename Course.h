@@ -11,9 +11,10 @@ struct Course {
 
     int cid;
     string dept;
+    string name;
 
     Course();
-    Course(int c, string d);
+    Course(int c, string d, string n = "[not given]");
 
 };
 

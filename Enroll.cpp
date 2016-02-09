@@ -4,7 +4,7 @@
 
 #include "Enroll.h"
 
-Enroll::Enroll(Student s, Course c, double g)
+Enroll::Enroll(Student & s, Course & c, double g)
 {
     sid = s.sid;
     cid = c.cid;

@@ -3,9 +3,17 @@
 
 #include <string>
 #include <map>
+#include <vector>
 #include <iostream>
 #include "Course.h"
+#include "Enroll.h"
 #include "Department.h"
+#include "Catalog.h"
+
+struct Catalog;
+
+extern Catalog CAESAR;
+
 using namespace std;
 
 struct Student {
@@ -16,8 +24,6 @@ struct Student {
     int age;
     string major;
     bool has_not_graduated;
-
-    //map<int, Course> completed_courses;
 
     //constructors
     Student(); //default constructor

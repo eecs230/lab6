@@ -4,12 +4,16 @@
 #include <map>
 #include <list>
 #include <utility>
+#include <vector>
 #include <iostream>
 #include "Course.h"
 #include "Student.h"
 #include "Enroll.h"
 
 using namespace std;
+
+struct Student;
+struct Enroll;
 
 struct Catalog{
 
@@ -23,6 +27,8 @@ struct Catalog{
     void add_student(Student & s);
     void add_course(Course & c);
     void add_enrollment(Enroll & e);
+
+    vector<Enroll> get_all_enrollments(int sid);
 
     void print_courses();
     void print_students();

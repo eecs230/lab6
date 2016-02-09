@@ -39,7 +39,11 @@ void Catalog::add_enrollment(Enroll & e)
 
     if(students.find(the_sid) == students.end()) //student id not a key value in students map
     {
-        cerr << "Student attempting to be in enrolled is not a valid student in Catalog" << endl;
+        cerr << "Student: "<< the_sid << "- is not a valid student in Catalog" << endl;
+    }
+    else if (courses.find(e.cid) == courses.end())
+    {
+        cerr << "Course: " << e.cid << "- is not a valid course in Catalog" << endl;
     }
     else
     {
@@ -90,4 +94,22 @@ void Catalog::print_catalog()
     print_students();
     print_courses();
     print_enrollments();
+    cout << endl;
+}
+
+/* returns vector of all enrollments for student with student ID: sid */
+vector<Enroll> Catalog::get_all_enrollments(int sid)
+{
+    vector<Enroll> output;
+
+    for (list<Enroll>::iterator i = enrollments.begin(); i != enrollments.end(); i++)
+    {
+        Enroll e = *i;
+        if(e.sid == sid)
+        {
+            output.push_back(e);
+        }
+    }
+
+    return output;
 }
