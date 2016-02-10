@@ -16,7 +16,7 @@ Student::Student(string n, int a, string d, bool h)
     name = n;
     age = a;
     major = d;
-    has_not_graduated = a;
+    has_not_graduated = h;
 }
 
 //change major to new_major parameter
