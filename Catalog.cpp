@@ -48,7 +48,7 @@ void Catalog::add_enrollment(Enroll & e)
     }
 
     //check whether a course_id exists Catalog, and if not, call cerr << [your message here]
-        
+
     else
     {
         enrollments.push_front(e);
@@ -59,6 +59,12 @@ void Catalog::add_enrollment(Enroll & e)
 Course Catalog::retrieve_course(int cid)
 {
     map<int, Course>::iterator k = courses.find(cid);
+
+    if(k==courses.end())
+    {
+        cerr << "Catalog::retrieve_course() unable to find Course with cid: " << cid << endl;
+    }
+
     pair<int, Course> p2 = (*k);
     Course c = p2.second;
     return c;

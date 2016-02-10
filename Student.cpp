@@ -33,11 +33,14 @@ double Student::compute_gpa()
     double sum = 0;
     double num_courses = my_enrollments.size();
 
-    for(int i= 0; i< num_courses; i++)
+    for(Enroll & e: my_enrollments)
     {
         //implement here
+
+
     }
 
+    //once implementation complete, delete this
     cerr << "Student::compute_gpa() not yet implemented" << endl;
 
     return sum / num_courses;

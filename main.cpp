@@ -1,13 +1,16 @@
 #include <iostream>
 #include <string>
+#include <mutex>
 #include "Student.h"
 #include "Enroll.h"
 #include "Catalog.h"
+
 
 using namespace std;
 
 //CAESAR database
 Catalog CAESAR;
+mutex mtx;
 
 void populate_db(); // function declaration
 void run_two_tests(); // function declaration
@@ -15,8 +18,9 @@ void run_two_tests(); // function declaration
 int main() {
     populate_db();
     CAESAR.print_catalog();
-    //run_two_tests();
 
+    //run_two_tests();
+    //CAESAR.print_catalog();
 }
 
 void populate_db() // function definition
@@ -64,9 +68,8 @@ void run_two_tests()
     cout << s.name << " has gpa of " << gpa << endl;
 
     //Attempt to add a course that's not in CAESAR to an enrollment -- will fail once invariant check implemented
-    Course econometrics(110, "ECON");
+    //Course econometrics(110, "ECON");
     //CAESAR.add_course(econometrics);
-    Enroll e(s,econometrics, 3.0);
-    CAESAR.add_enrollment(e);
-    CAESAR.print_catalog();
+    //Enroll e(s,econometrics, 3.0);
+    //CAESAR.add_enrollment(e);
 }
