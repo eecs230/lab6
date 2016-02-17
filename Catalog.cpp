@@ -49,6 +49,12 @@ void Catalog::add_enrollment(Enroll & e)
 
     //check whether a course_id exists Catalog, and if not, call cerr << [your message here]
 
+    if(courses.find(e.cid) == courses.end()) //student id not a key value in students map
+    {
+        cerr << "Error in Catalog::add_enrollment()-- Course: "<< e.cid << " is not a valid course in Catalog" << endl;
+    }
+
+
     else
     {
         enrollments.push_front(e);

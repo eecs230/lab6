@@ -37,6 +37,8 @@ double Student::compute_gpa()
     {
         //implement here
 
+        int grade = e.grade;
+        sum += grade;
 
     }
 
