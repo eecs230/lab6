@@ -1,7 +1,15 @@
 cmake_minimum_required(VERSION 3.3)
-project(lab6)
+project(lab6 CXX)
+include(.eecs230/CMakeLists.txt)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
-set(SOURCE_FILES main.cpp Student.cpp Student.h Catalog.cpp Catalog.h Enroll.cpp Enroll.h Course.cpp Course.h)
+set(SOURCE_FILES
+    src/main.cpp
+    src/Student.cpp
+    src/Student.h
+    src/Catalog.cpp
+    src/Catalog.h
+    src/Enroll.cpp
+    src/Enroll.h
+    src/Course.cpp
+    src/Course.h)
 add_executable(lab6 ${SOURCE_FILES})
