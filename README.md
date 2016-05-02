@@ -14,7 +14,7 @@ We are going to work with a database with the following schema:
 - course(cid: int, dept: string)
 - enroll(sid: int, cid: int, grade:int)
 
-The Catalog that stores this information has global variable name CAESAR. It is pre-populated with the following:
+The `main` function defines a `Catalog` object `caesar` that stores this information. It is pre-populated with the following:
 
 ```
 Students:
@@ -36,26 +36,24 @@ Enrollments:
 ## Tasks
 
 1. Add the following to CAESAR:
-    - students: yourself, and one other classmates
+    - students: yourself, and one other classmate
     - courses: two classes that occurred in the Fall
-    - enrollments: students X courses (ie, add an enrollment for each new student-course pair)
+    - enrollments: students X courses (*i.e.,* add an enrollment for each new student-course pair)
 
-   Print out CAESAR and verify that everything worked correctly.
+   Print out `caesar` and verify that everything worked correctly.
 
-2. Currently, courses are represented by course_number and department. Add a member variable to Course that represents the name of the course.
-   Ie, EECS_230 Course object has member variable name "Programming For Engineers". Print out CAESAR and verify that everything worked correctly.
+2. Currently, courses are represented by course_number and department. Add a member variable to `Course` that represents the name of the course. That is, the EECS_230 Course object has member variable storing "Programming For Engineers". Print out CAESAR and verify that everything worked correctly.
 
-3. Currently, `Student::compute_gpa()` is not implemented. Finish the implementation and verify that the function works correctly. Verify that `Miguel has gpa of 3.0`.
+3. Currently, `Student::compute_gpa(const Catalog&)` is not implemented. Finish the implementation and verify that the function works correctly. Verify that `Miguel has gpa of 3.0`.
 
-4. Add an **invariant** in `Catalog::add_enrollment()` that ensures a student and course are in CAESAR, before an Enrollment involving the student or course is added to CAESAR.
-   If this **invariant** is not met, throw a `runtime_error`.
+4. Add an **invariant** in `Catalog::add_enrollment(Catalog&)` that ensures a student and course are in CAESAR, before an Enrollment involving the student or course is added to CAESAR. If this **invariant** is not met, throw a `runtime_error`.
 
 ## Extension
 
-1. Add an **invariant** in the `Enroll` struct that ensures grades be in the range [0,4], before constructing a valid Enroll object. If this **invariant** is not met, throw a `runtime_error`.
+1. Change the `Enroll` struct to a class, and add an **invariant** that ensures grades be in the range [0,4], before constructing a valid Enroll object. If this **invariant** is not met, throw a `runtime_error`.
 
-2. Modify the student() constructor to assume that new students have an age of 18 years old, unless told otherwise. Ie, make age 18 the default value. For an example, notice that hasNotGraduated has a default value of `true`.
+2. Modify the `Student()` constructor to assume that new students have an age of 18 years old, unless told otherwise. That is, make age 18 the default value. For an example, notice that `hasNotGraduated` has a default value of `true`.
 
 3. Implement a new function called `Catalog::find_phiBetaKappa()` that returns a list of Students who have gpas > 3.7. Hint: use `Student::compute_gpa()`.
 
-4. Currently, there is a bug in the database where all course_numbers must be unique (ie., there can't be both a CHEM_ENG 101 and MECH_ENG 101). Fix this bug by having the courses take in a `pair<int cid, string dept>` as it's primary key.
+4. Currently, there is a bug in the database where all course_numbers must be unique (*i.e.,* there can't be both a CHEM_ENG 101 and MECH_ENG 101). Fix this bug by having the courses take in a `pair<int cid, string dept>` as its primary key.
