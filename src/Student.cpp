@@ -33,9 +33,9 @@ void Student::change_major(std::string new_major)
 }
 
 /*iterate over all enrollments and compute average gpa*/
-double Student::compute_gpa()
+double Student::compute_gpa(const Catalog& catalog)
 {
-    std::vector<Enroll> my_enrollments = CAESAR.get_all_enrollments(sid);
+    std::vector<Enroll> my_enrollments = catalog.get_all_enrollments(sid);
 
     double sum = 0;
     double num_courses = my_enrollments.size();
@@ -43,9 +43,7 @@ double Student::compute_gpa()
     for(const Enroll& e : my_enrollments)
     {
         //implement here
-
-        int grade = e.grade;
-        sum += grade;
+        sum += e.grade;
 
     }
 

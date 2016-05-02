@@ -48,11 +48,11 @@ Enrollments:
 3. Currently, `Student::compute_gpa()` is not implemented. Finish the implementation and verify that the function works correctly. Verify that `Miguel has gpa of 3.0`.
 
 4. Add an **invariant** in `Catalog::add_enrollment()` that ensures a student and course are in CAESAR, before an Enrollment involving the student or course is added to CAESAR.
-   If this **invariant** is not met, call `cerr<< [your message here]`.
+   If this **invariant** is not met, throw a `runtime_error`.
 
 ## Extension
 
-1. Add an **invariant** in the `Enroll` struct that ensures grades be in the range [0,4], before constructing a valid Enroll object. If this **invariant** is not met, call `cerr<< [your message here]`.
+1. Add an **invariant** in the `Enroll` struct that ensures grades be in the range [0,4], before constructing a valid Enroll object. If this **invariant** is not met, throw a `runtime_error`.
 
 2. Modify the student() constructor to assume that new students have an age of 18 years old, unless told otherwise. Ie, make age 18 the default value. For an example, notice that hasNotGraduated has a default value of `true`.
 

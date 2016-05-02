@@ -18,22 +18,22 @@ struct Catalog
     std::list<Enroll> enrollments;
 
     //find Student or Course from Catalog
-    Student retrieve_student(int sid);
-    Course retrieve_course(int cid);
+    Student retrieve_student(int sid) const;
+    Course retrieve_course(int cid) const;
 
     //get vector of enrollments for given sid
-    std::vector<Enroll> get_all_enrollments(int sid);
+    std::vector<Enroll> get_all_enrollments(int sid) const;
 
     //add to containers
-    void add_student(Student& s);
-    void add_course(Course& c);
-    void add_enrollment(Enroll& e);
+    void add_student(const Student& s);
+    void add_course(const Course& c);
+    void add_enrollment(const Enroll& e);
 
     //printout functions
-    void print_courses();
-    void print_students();
-    void print_enrollments();
-    void print_catalog();
+    void print_courses() const;
+    void print_students() const;
+    void print_enrollments() const;
+    void print_catalog() const;
 };
 
 extern Catalog CAESAR;

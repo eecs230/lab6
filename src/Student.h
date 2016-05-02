@@ -3,6 +3,9 @@
 #include <iostream>
 #include <string>
 
+// Forward declaration so that we can refer to Catalog
+struct Catalog;
+
 /* represents student object*/
 struct Student
 {
@@ -19,9 +22,9 @@ struct Student
     //note: bool h = true means default value is true, unless specified otherwise
 
     //function declarations
-    void enroll_in_course(int cid);
-    void receive_grade(int cid, int grade);
-    double compute_gpa();
+    void enroll_in_course(Catalog&, int cid);
+    void receive_grade(Catalog&, int cid, int grade);
+    double compute_gpa(const Catalog&);
     void change_major(std::string new_major);
 };
 

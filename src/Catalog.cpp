@@ -1,99 +1,70 @@
 #include "Catalog.h"
 
+#include <stdexcept>
 #include <utility>
 #include <vector>
 
 using namespace std;
 
 /* Add student to Catalog */
-void Catalog::add_student(Student & s)
+void Catalog::add_student(const Student& s)
 {
-    std::pair<int, Student> s_p;
-    s_p = std::make_pair(s.sid, s);
-
-    students.insert(s_p);
+    students[s.sid] = s;
 }
 
 /* Add student to Course: note, no duplicate cids allowed [known bug] */
-void Catalog::add_course(Course & c)
+void Catalog::add_course(const Course& c)
 {
-    std::pair<int, Course> c_p;
-    c_p = std::make_pair(c.cid, c);
-
     //ensure that no duplicate course_num is added to CAESAR [known bug - see Extension problem]
-    std::map<int, Course>::iterator i = courses.find(c.cid);
-    if(i== courses.end())
-    {
-        courses.insert(c_p);
-    }
-    else
-    {
-        std::cerr << "Error in Catalog::add_course()-- unable to add course; "
-                         "duplicate course_num in CAESAR: " << c << '\n';
+    if(courses.find(c.cid) == courses.end()) {
+        courses[c.cid] = c;
+    } else {
+        throw runtime_error{"Catalog::add_course(): duplicate course number"};
     }
 }
 
 /* retrieve student from Catalog*/
-Student Catalog::retrieve_student(int sid)
+Student Catalog::retrieve_student(int sid) const
 {
-    std::map<int, Student>::iterator j = students.find(sid);
-    std::pair<int, Student> p = (*j);
-    Student s = p.second;
-    return s;
+    map<int, Student>::const_iterator j = students.find(sid);
+    return j->second;
 }
 
 /* add enrollment to from Catalog; ensure both course and student associated with Enroll object are in Catalog*/
-void Catalog::add_enrollment(Enroll & e)
+void Catalog::add_enrollment(const Enroll& e)
 {
-    int the_sid = e.sid;
-
-    if(students.find(the_sid) == students.end()) //student id not a key value in students map
-    {
-        std::cerr << "Error in Catalog::add_enrollment()-- Student: " <<
-                the_sid << " is not a valid student in Catalog\n";
+    if(students.find(e.sid) == students.end()) {
+        // student id not a key value in students map
+        throw runtime_error{"Catalog::add_enrollment(): invalid student"};
     }
 
-    //check whether a course_id exists Catalog, and if not, call cerr << [your message here]
-
-    if(courses.find(e.cid) == courses.end()) //student id not a key value in students map
-    {
-        std::cerr << "Error in Catalog::add_enrollment()-- Course: "<< e.cid
-            << " is not a valid course in Catalog\n";
+    if(courses.find(e.cid) == courses.end()) {
+        // course id not a key value in courses map
+        throw runtime_error{"Catalog::add_enrollment(): invalid course"};
     }
 
-
-    else
-    {
-        enrollments.push_front(e);
-    }
+    enrollments.push_front(e);
 }
 
 /* retrieve course from Catalog*/
-Course Catalog::retrieve_course(int cid)
+Course Catalog::retrieve_course(int cid) const
 {
-    std::map<int, Course>::iterator k = courses.find(cid);
+    map<int, Course>::const_iterator k = courses.find(cid);
 
-    if(k==courses.end())
-    {
-        std::cerr << "Catalog::retrieve_course() unable to find Course with "
-                            "cid: " << cid << '\n';
+    if(k == courses.end()) {
+        throw runtime_error{"Catalog::retrieve_course(): unknown course"};
     }
 
-    std::pair<int, Course> p2 = (*k);
-    Course c = p2.second;
-    return c;
+    return k->second;
 }
 
 /* returns vector of all enrollments for student with student ID: sid */
-std::vector<Enroll> Catalog::get_all_enrollments(int sid)
+vector<Enroll> Catalog::get_all_enrollments(int sid) const
 {
     vector<Enroll> output;
 
-    for (list<Enroll>::iterator i = enrollments.begin(); i != enrollments.end(); i++)
-    {
-        Enroll e = *i;
-        if(e.sid == sid)
-        {
+    for (const Enroll& e : enrollments) {
+        if (e.sid == sid) {
             output.push_back(e);
         }
     }
@@ -101,47 +72,38 @@ std::vector<Enroll> Catalog::get_all_enrollments(int sid)
     return output;
 }
 
-void Catalog::print_students()
+void Catalog::print_students() const
 {
     cout << "Students:\n";
 
-    for (map<int, Student>::iterator i = students.begin(); i != students.end(); i++)
-    {
-        pair<int, Student> p = *i;
-        Student s = p.second;
-        cout << "  " << s << '\n';
+    for (auto i = students.cbegin(); i != students.cend(); ++i) {
+        cout << "  " << i->second << '\n';
     }
 }
 
-void Catalog::print_courses()
+void Catalog::print_courses() const
 {
     cout << "Courses:\n";
 
-    for (map<int, Course>::iterator i = courses.begin(); i != courses.end(); i++)
-    {
-        pair<int, Course> p = *i;
-        Course c = p.second;
-        cout << "  " << c << '\n';
+    for (const auto& p : courses) {
+        cout << "  " << p.second << '\n';
     }
 }
 
-void Catalog::print_enrollments()
+void Catalog::print_enrollments() const
 {
-    cout << "Enrollments: \n";
+    cout << "Enrollments:\n";
 
-    for (list<Enroll>::iterator i = enrollments.begin(); i != enrollments.end(); i++)
-    {
-        Enroll e = *i;
-
+    for (auto e : enrollments) {
         Student s = retrieve_student(e.sid);
         Course c = retrieve_course(e.cid);
 
-        cout << "  " << "name: " << s.name << "; course: (" << c << "); "
-                                                                            "grade: " << e.grade << '\n';
+        cout << "  " << "name: " << s.name << "; course: (" << c << "); grade: " <<
+                e.grade << '\n';
     }
 }
 
-void Catalog::print_catalog()
+void Catalog::print_catalog() const
 {
     print_students();
     print_courses();
