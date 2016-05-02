@@ -37,20 +37,9 @@ double Student::compute_gpa(const Catalog& catalog)
 {
     std::vector<Enroll> my_enrollments = catalog.get_all_enrollments(sid);
 
-    double sum = 0;
-    double num_courses = my_enrollments.size();
-
-    for(const Enroll& e : my_enrollments)
-    {
-        //implement here
-        sum += e.grade;
-
-    }
-
+    //implement here
     //once implementation complete, delete this
-    std::cerr << "Student::compute_gpa() not yet implemented\n";
-
-    return sum / num_courses;
+    throw runtime_error{"Student::compute_gpa() not yet implemented"};
 }
 
 //operator overloaded

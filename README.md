@@ -52,8 +52,8 @@ Enrollments:
 
 1. Change the `Enroll` struct to a class, and add an **invariant** that ensures grades be in the range [0,4], before constructing a valid Enroll object. If this **invariant** is not met, throw a `runtime_error`.
 
-2. Modify the `Student()` constructor to assume that new students have an age of 18 years old, unless told otherwise. That is, make age 18 the default value. For an example, notice that `hasNotGraduated` has a default value of `true`.
+2. Modify the `Student` constructor to assume that new students have an age of 18 years old, unless told otherwise. That is, make age 18 the default value. For an example, notice that `hasNotGraduated` has a default value of `true`.
 
-3. Implement a new function called `Catalog::find_phiBetaKappa()` that returns a list of Students who have gpas > 3.7. Hint: use `Student::compute_gpa()`.
+3. Implement a new function called `Catalog::find_phi_beta_kappa()` that returns a list of `Student`s who have gpas > 3.7. Hint: use `Student::compute_gpa()`.
 
 4. Currently, there is a bug in the database where all course_numbers must be unique (*i.e.,* there can't be both a CHEM_ENG 101 and MECH_ENG 101). Fix this bug by having the courses take in a `pair<int cid, string dept>` as its primary key.

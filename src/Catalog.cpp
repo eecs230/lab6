@@ -33,15 +33,7 @@ Student Catalog::retrieve_student(int sid) const
 /* add enrollment to from Catalog; ensure both course and student associated with Enroll object are in Catalog*/
 void Catalog::add_enrollment(const Enroll& e)
 {
-    if(students.find(e.sid) == students.end()) {
-        // student id not a key value in students map
-        throw runtime_error{"Catalog::add_enrollment(): invalid student"};
-    }
-
-    if(courses.find(e.cid) == courses.end()) {
-        // course id not a key value in courses map
-        throw runtime_error{"Catalog::add_enrollment(): invalid course"};
-    }
+    // Enforce the invariant here
 
     enrollments.push_front(e);
 }
