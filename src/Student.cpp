@@ -1,17 +1,24 @@
-
 #include "Student.h"
 
-int STUDENT_ID_GENERATOR = 0; //global variable used to generate unique sids
+#include "Enroll.h"
+#include "Catalog.h"
 
+#include <iomanip>
+#include <string>
+#include <vector>
+
+// global variable used to generate unique sids
+static int STUDENT_ID_GENERATOR = 0;
 
 //default constructor: initialize all member variables to default values
-Student::Student() {}
+Student::Student()
+{ }
 
 //Student constructor
-Student::Student(string n, int a, string d, bool h)
+Student::Student(std::string n, int a, std::string d, bool h)
 {
     sid = STUDENT_ID_GENERATOR;
-    STUDENT_ID_GENERATOR ++; //increment unique Student ID generator for next student
+    ++STUDENT_ID_GENERATOR; //increment unique Student ID generator for next student
 
     name = n;
     age = a;
@@ -20,7 +27,7 @@ Student::Student(string n, int a, string d, bool h)
 }
 
 //change major to new_major parameter
-void Student::change_major(string new_major)
+void Student::change_major(std::string new_major)
 {
     major = new_major;
 }
@@ -28,12 +35,12 @@ void Student::change_major(string new_major)
 /*iterate over all enrollments and compute average gpa*/
 double Student::compute_gpa()
 {
-    vector<Enroll> my_enrollments = CAESAR.get_all_enrollments(sid);
+    std::vector<Enroll> my_enrollments = CAESAR.get_all_enrollments(sid);
 
     double sum = 0;
     double num_courses = my_enrollments.size();
 
-    for(Enroll & e: my_enrollments)
+    for(const Enroll& e : my_enrollments)
     {
         //implement here
 
@@ -43,16 +50,16 @@ double Student::compute_gpa()
     }
 
     //once implementation complete, delete this
-    cerr << "Student::compute_gpa() not yet implemented" << endl;
+    std::cerr << "Student::compute_gpa() not yet implemented\n";
 
     return sum / num_courses;
 }
 
 //operator overloaded
-ostream & operator<<(ostream & o, Student& s)
+std::ostream& operator<<(std::ostream& o, const Student& s)
 {
     o << s.name << "; sid: " << s.sid << "; " << s.age << " years old; major: " << s.major;
-    o << "; graduated: " << boolalpha << !s.has_not_graduated;
+    o << "; graduated: " << std::boolalpha << !s.has_not_graduated;
 
     return o;
 }

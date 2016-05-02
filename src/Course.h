@@ -1,22 +1,18 @@
-#ifndef LAB5_COURSE_H
-#define LAB5_COURSE_H
+#pragma once
 
-#include "Student.h"
 #include <iostream>
-
-using namespace std;
+#include <string>
 
 /*represents unique course */
-struct Course {
-
+struct Course
+{
     int cid;
-    string dept;
+    std::string dept;
 
     Course();
-    Course(int c, string d); //modify constructor and add default value, or add new constructor
-
+    Course(int c, std::string d);
+    // modify constructor and add default value, or add new constructor
 };
 
-ostream & operator<<(ostream &, Course &);
+std::ostream& operator<<(std::ostream&, const Course&);
 
-#endif //LAB5_COURSE_H

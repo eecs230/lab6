@@ -10,7 +10,6 @@ using namespace std;
 
 //CAESAR database
 Catalog CAESAR;
-mutex mtx;
 
 void populate_db(); // function declaration
 void run_two_tests(); // function declaration

@@ -1,44 +1,30 @@
-#ifndef LAB5_STUDENT_H
-#define LAB5_STUDENT_H
+#pragma once
 
-#include <string>
-#include <map>
-#include <vector>
 #include <iostream>
-#include "Course.h"
-#include "Enroll.h"
-#include "Catalog.h"
-
-struct Catalog;
-
-extern Catalog CAESAR;
-
-using namespace std;
-
+#include <string>
 
 /* represents student object*/
-struct Student {
-
-    //member variables
-    int sid; //student id
-    string name;
+struct Student
+{
+    // member variables
+    int sid; // student id
+    std::string name;
     int age;
-    string major;
+    std::string major;
     bool has_not_graduated;
 
-    //constructors
-    Student(); //default constructor
-    Student(string n, int a, string d, bool h = true); //note: bool h = true means default value is true, unless specified otherwise
+    // constructors
+    Student(); // default constructor
+    Student(std::string n, int a, std::string d, bool h = true);
+    //note: bool h = true means default value is true, unless specified otherwise
 
     //function declarations
     void enroll_in_course(int cid);
     void receive_grade(int cid, int grade);
     double compute_gpa();
-    void change_major(string new_major);
-
+    void change_major(std::string new_major);
 };
 
 //operator overloading
-ostream & operator<<(ostream &, Student&);
+std::ostream& operator<<(std::ostream&, const Student&);
 
-#endif //LAB5_STUDENT_H

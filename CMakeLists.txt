@@ -12,4 +12,4 @@ set(SOURCE_FILES
     src/Enroll.h
     src/Course.cpp
     src/Course.h)
-add_executable(lab6 ${SOURCE_FILES})
+add_program(lab6 ${SOURCE_FILES})
