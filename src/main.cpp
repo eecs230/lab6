@@ -9,7 +9,7 @@
 using namespace std;
 
 void populate_db(Catalog&); // function declaration
-void run_two_tests(Catalog&); // function declaration
+void run_two_tests(const Catalog&); // function declaration
 
 int main() {
     Catalog caesar;
@@ -17,7 +17,7 @@ int main() {
     populate_db(caesar);
     caesar.print_catalog();
 
-    // run_two_tests(caesar);
+    //run_two_tests(caesar);
     // caesar.print_catalog();
 }
 
