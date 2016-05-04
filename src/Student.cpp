@@ -1,4 +1,5 @@
 #include "Student.h"
+#include "eecs230.h"
 
 #include "Enroll.h"
 #include "Catalog.h"
@@ -35,7 +36,7 @@ void Student::change_major(std::string new_major)
 /*iterate over all enrollments and compute average gpa*/
 double Student::compute_gpa(const Catalog& catalog)
 {
-    std::vector<Enroll> my_enrollments = catalog.get_all_enrollments(sid);
+    vector<Enroll> my_enrollments = catalog.get_all_enrollments(sid);
 
     //implement here
     //once implementation complete, delete this

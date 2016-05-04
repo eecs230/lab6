@@ -33,7 +33,14 @@ Student Catalog::retrieve_student(int sid) const
 /* add enrollment to from Catalog; ensure both course and student associated with Enroll object are in Catalog*/
 void Catalog::add_enrollment(const Enroll& e)
 {
-    // Enforce the invariant here
+    int sid_to_add = e.sid;
+    int cid_to_add = e.cid;
+
+    bool student_exists = (students.find(sid_to_add)!= students.end());
+    bool courses_exists = (courses.find(cid_to_add)!= courses.end());
+
+    // Enforce the invariant here (check whether student and courses exists in CAESAR; if so, add enrollment..
+    // if not, print (cerr) an error message so user is aware of problem)
 
     enrollments.push_front(e);
 }

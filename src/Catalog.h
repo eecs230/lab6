@@ -10,6 +10,8 @@
 #include "Student.h"
 #include "Enroll.h"
 
+using namespace std;
+
 /* stores Catalog of students, courses, and enrollments in map and list containers */
 struct Catalog
 {
@@ -22,7 +24,7 @@ struct Catalog
     Course retrieve_course(int cid) const;
 
     //get vector of enrollments for given sid
-    std::vector<Enroll> get_all_enrollments(int sid) const;
+    vector<Enroll> get_all_enrollments(int sid) const;
 
     //add to containers
     void add_student(const Student& s);
